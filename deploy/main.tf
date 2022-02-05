@@ -139,3 +139,26 @@ tags = {
   Owner = "Pravar"
 }
 }
+
+
+resource "aws_instance" "web-app-instance" {
+  ami = ""
+  instance_type = ""
+  subnet_id = ""
+  associate_public_ip_address = "true"
+  vpc_security_group_ids = [aws_vpc.web-app-vpc.id]
+  key_name = ""
+
+  root_block_device {
+    delete_on_termination = true
+    iops = ""
+    volume_size =
+    volume_type = 
+  }
+
+  tags {
+    Name = "web-app-instance"
+    
+  }
+  depends_on = [aws_security_group.web-app-security-group]
+}
